@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehfare</title>
+    <link href="./input.css" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
-    
+
 </head>
+
 <body class="bg-gray-900 text-white">
     <!-- Navbar -->
     <nav class="bg-black p-4 fixed top-0 left-0 w-full transition-transform duration-300 ease-in-out z-20">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-white">Vehfare</h1>
+            <a href="#" class=" z-20">
+                <h1 class="text-3xl font-bold text-white">Vehfare</h1>
+            </a>
             <!-- Hamburger Menu Button -->
-            <button id="menu-button" class="text-white md:hidden">
+            <button id="menu-button" class="text-white md:hidden z-10">
                 <!-- Hamburger Icon (3 horizontal bars) -->
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
                 </svg>
             </button>
             <!-- Menu Items (hidden by default on small screens) -->
-            <div id="menu" class="fixed inset-0 bg-gray-900 bg-opacity-100 hidden md:relative md:flex md:items-center md:bg-opacity-0">
+            <div id="menu"
+                class="fixed inset-0 bg-gray-900 bg-opacity-100 hidden md:relative md:flex md:items-center md:bg-opacity-0 z-10">
                 <!-- Close Button -->
                 <button id="close-button" class="absolute top-5 right-4 text-white md:hidden">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
-                <ul class="flex flex-col h-full justify-start items-start p-8 pt-20 space-y-6 md:flex-row md:space-y-0 md:space-x-4 md:p-0">
-                    <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">Home</a></li>
+                <ul
+                    class="flex flex-col h-full justify-start items-start p-8 pt-20 space-y-6 md:flex-row md:space-y-0 md:space-x-4 md:p-0">
                     <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">Models</a></li>
                     <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">About</a></li>
                     <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">Contact</a></li>
@@ -36,22 +46,23 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section 0 -->
-    <header class="bg-cover bg-center h-screen relative" style="background-image: url('/path/to/hero-image.jpg');">
-        <div class="flex justify-end items-end p-8 h-full bg-black bg-opacity-50">
+    <header class="bg-cover bg-center relative section" style="background-image: url('../assets/ComfyUI_00019_.png');">
+        <div class="flex justify-end items-end p-8 h-full bg-opacity-100">
             <div class="flex flex-col justify-between h-full w-full text-right">
                 <!-- Content Area -->
                 <div class="p-10">
-                    <h2 class="text-4xl md:text-6xl font-bold">Drive like never before</h2>
+                    <h2 class="text-4xl md:text-6xl font-bold">Skybreaking Nano Technology</h2>
+                    <p class="mt-4 text-lg md:text-2xl">Experience the Future, shape your ride</p>
                 </div>
             </div>
         </div>
     </header>
-        
+
     <!-- Hero Section 1 -->
-    <header class="bg-cover bg-center h-screen relative" style="background-image: url('/path/to/hero-image.jpg');">
-        <div class="flex justify-end items-end p-8 h-full bg-black bg-opacity-50">
+    <header class="bg-cover bg-center relative section sidesection" style="background-image: url('../assets/ComfyUI_00020_.png');">
+        <div class="flex justify-end items-end p-8 h-full bg-opacity-100">
             <div class="flex flex-col justify-between h-full w-full">
                 <!-- Content Area -->
                 <div class="p-10">
@@ -62,32 +73,28 @@
     </header>
 
     <!-- Hero Section 2 -->
-    <header class="bg-cover bg-center h-screen relative" style="background-image: url('/path/to/hero-image.jpg');">
-        <div class="flex justify-end items-end p-8 h-full bg-black bg-opacity-50">
+    <header class="bg-cover bg-center relative section sidesection" style="background-image: url('../assets/ComfyUI_00008_.png');">
+        <div class="flex justify-end items-end p-8 h-full bg-opacity-100">
             <div class="flex flex-col justify-between h-full w-full text-right">
                 <!-- Content Area -->
                 <div class="p-10">
-                    <h2 class="text-4xl md:text-6xl font-bold">Or behind the moon,</h2>
+                    <h2 class="text-4xl md:text-6xl font-bold text-bl">Or on the moon,</h2>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Hero Section 3 Experience the Future-->
-    <header class="bg-cover bg-center h-screen relative" style="background-image: url('/path/to/hero-image.jpg');">
-        <div class="flex justify-start items-start p-8 h-full bg-black bg-opacity-50">
-            <div class="flex flex-col justify-between h-full w-full">
+    <header class="bg-cover bg-center relative section" style="background-image: url('../assets/ComfyUI_00009_.png');">
+        <div class="flex justify-start items-start p-8 h-full">
+            <div class="flex flex-col justify-between h-full w-full sm:text-center">
                 <!-- Content Area -->
                 <div class="p-10">
                     <h2 class="text-4xl md:text-6xl font-bold">A001</h2>
-                    <p class="mt-4 text-lg md:text-2xl">A vehicle you can trust in warfare</p>
-                </div>
-                <!-- Buttons Area -->
-                <div class="relative flex flex-col items-end p-10 space-y-4">
-                    <!-- <p class="text-lg text-white">Starting from S$1,000,000</p> -->
-                    <div class="flex space-x-4">
-                        <a href="#" class="inline-block px-6 py-3 bg-red-500 text-black font-bold rounded hover:bg-red-400">Book a test drive</a>
-                        <a href="#" class="inline-block px-6 py-3 bg-red-500 text-black font-bold rounded hover:bg-red-400">See more</a>
+                    <p class="mt-4 text-lg md:text-2xl">Morph to your ideal ride</p>
+                    <div class="flex items-end space-y-4 space-x-4">
+                        <a href="#" class="text-center inline-block px-6 py-3 bg-red-500 text-white font-bold rounded hover:bg-red-400">Test drive</a>
+                        <a href="#" class="text-center inline-block px-6 py-3 bg-red-500 text-white font-bold rounded hover:bg-red-400">See more</a>
                     </div>
                 </div>
             </div>
@@ -95,24 +102,32 @@
     </header>
 
     <!-- More -->
-    <section class="py-16 bg-black text-white">
+    <section class="py-16 bg-black text-white section">
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-bold mb-8 text-center">Explore</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Card 1: View One of a Kind -->
-                <div class="relative h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition duration-300" style="background-image: url('/path/to/image1.jpg');">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-lg">
+                <!-- Uniquely beautiful -->
+                <div class="relative h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                    style="background-image: url('../assets/ComfyUI_00004_.png');">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-lg">
                         <h4 class="text-xl font-bold mb-4">Uniquely beautiful</h4>
-                        <p class="mb-4">Vehicles that stand out from the rest.</p>
-                        <a href="#" class="inline-block px-4 py-2 bg-red-500 text-black font-bold rounded hover:bg-red-400">View Now</a>
+                        <p class=" text-center mb-4">Vehicles that stand out from the rest.</p>
+                        <a href="#"
+                            class="inline-block px-4 py-2 bg-red-500 text-white font-bold rounded hover:bg-red-400">View
+                            Now</a>
                     </div>
                 </div>
-                <!-- Card 2: View Past Collections -->
-                <div class="relative h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition duration-300" style="background-image: url('/path/to/image2.jpg');">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-lg">
+                <!-- Monsters -->
+                <div class="relative h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                    style="background-image: url('../assets/ComfyUI_00011_.png');">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-lg">
                         <h4 class="text-xl font-bold mb-4">Monsters</h4>
-                        <p class="mb-4">Show no mercy and crush your enemies.</p>
-                        <a href="#" class="inline-block px-4 py-2 bg-red-500 text-black font-bold rounded hover:bg-red-400">View Now</a>
+                        <p class=" text-center mb-4">Show no mercy and crush your enemies.</p>
+                        <a href="#"
+                            class="inline-block px-4 py-2 bg-red-500 text-white font-bold rounded hover:bg-red-400">View
+                            Now</a>
                     </div>
                 </div>
             </div>
@@ -120,12 +135,14 @@
     </section>
 
     <!-- Hero Section 4 -->
-    <header class="bg-cover bg-center h-screen" style="background-image: url('/path/to/hero-image.jpg');">
+    <header class="bg-cover bg-center section" style="background-image: url('/path/to/hero-image.jpg');">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
             <div class="text-center">
                 <h2 class="text-4xl md:text-6xl font-bold">Starting line today, finish line tomorrow</h2>
                 <p class="mt-4 text-lg md:text-2xl"></p>
-                <a href="#" class="mt-6 inline-block px-6 py-3 bg-red-500 text-black font-bold rounded hover:bg-red-400">Ride Now</a>
+                <a href="#"
+                    class="mt-6 inline-block px-6 py-3 bg-red-500 text-white font-bold rounded hover:bg-red-400">Ride
+                    Now</a>
             </div>
         </div>
     </header>
@@ -154,9 +171,12 @@
                 <div class="flex flex-col items-center">
                     <h4 class="text-xl font-bold mb-4 text-center">Socials</h4>
                     <ul class="space-y-2 text-center">
-                        <li><a href="#" class="hover:text-red-500" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="#" class="hover:text-red-500" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                        <li><a href="#" class="hover:text-red-500" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="#" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="#" class="hover:text-red-500" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        </li>
+                        <li><a href="#" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Instagram</a></li>
                     </ul>
                 </div>
             </div>
@@ -172,4 +192,5 @@
 
     <script src="index.js"></script>
 </body>
+
 </html>

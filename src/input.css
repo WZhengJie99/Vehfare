@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+@media (min-width: 1024px) {
+    header {
+        height: 100vh;
+    }
+
+    .sidesection {
+        height: 85vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    header {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        height: 50vh;
+    }
+
+    h2, p {
+        text-align: center;
+    }
+}
