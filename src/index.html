@@ -60,29 +60,28 @@
         </div>
     </header>
 
-    <!-- Hero Section 1 -->
-    <header class="bg-cover bg-center relative section sidesection" style="background-image: url('../assets/ComfyUI_00020_.png');">
-        <div class="flex justify-end items-end p-8 h-full bg-opacity-100">
-            <div class="flex flex-col justify-between h-full w-full">
-                <!-- Content Area -->
-                <div class="p-10">
-                    <h2 class="text-4xl md:text-6xl font-bold">Whether you're near the sun,</h2>
+    <section class="relative w-screen h-screen section BASection" id="beforeAfterSection">
+        <!-- Background Image -->
+        <div class="absolute w-full h-full bg-no-repeat bg-center bg-contain"
+             style="background-image: url('../assets/ComfyUI_00031_.png');" id="section-bg-img">
+            <div class="p-10 text-right">
+                <h2 class="text-4xl md:text-6xl font-bold text-bl">Or on a planet,</h2>
+            </div>
+        </div>
+    
+        <!-- Foreground Image -->
+        <div class="absolute h-full overflow-hidden img">
+            <div class="w-full h-full bg-no-repeat bg-center bg-contain front-img"
+                 style="background-image: url('../assets/ComfyUI_00020_.png');">
+                <div class="p-10 text-left">
+                    <h2 class="text-4xl md:text-6xl font-bold">Whether you're near a star,</h2>
                 </div>
             </div>
         </div>
-    </header>
-
-    <!-- Hero Section 2 -->
-    <header class="bg-cover bg-center relative section sidesection" style="background-image: url('../assets/ComfyUI_00008_.png');">
-        <div class="flex justify-end items-end p-8 h-full bg-opacity-100">
-            <div class="flex flex-col justify-between h-full w-full text-right">
-                <!-- Content Area -->
-                <div class="p-10">
-                    <h2 class="text-4xl md:text-6xl font-bold text-bl">Or on the moon,</h2>
-                </div>
-            </div>
-        </div>
-    </header>
+    
+        <!-- Slider -->
+        <input type="range" min="0" max="100" value="50" class="img-slider" id="slider">
+    </section>    
 
     <!-- Hero Section 3 Experience the Future-->
     <header class="bg-cover bg-center relative section" style="background-image: url('../assets/ComfyUI_00009_.png');">
@@ -93,8 +92,12 @@
                     <h2 class="text-4xl md:text-6xl font-bold">A001</h2>
                     <p class="mt-4 text-lg md:text-2xl">Morph to your ideal ride</p>
                     <div class="flex items-end space-y-4 space-x-4">
-                        <a href="#" class="text-center inline-block px-6 py-3 bg-red-500 text-white font-bold rounded hover:bg-red-400">Test drive</a>
-                        <a href="#" class="text-center inline-block px-6 py-3 bg-red-500 text-white font-bold rounded hover:bg-red-400">See more</a>
+                        <a href="#"
+                            class="text-center inline-block px-6 py-3 bg-red-500 text-white font-bold rounded hover:bg-red-400">Test
+                            drive</a>
+                        <a href="#"
+                            class="text-center inline-block px-6 py-3 bg-red-500 text-white font-bold rounded hover:bg-red-400">See
+                            more</a>
                     </div>
                 </div>
             </div>
@@ -135,7 +138,7 @@
     </section>
 
     <!-- Hero Section 4 -->
-    <header class="bg-cover bg-center section" style="background-image: url('/path/to/hero-image.jpg');">
+    <header class="bg-cover bg-center section" style="background-image: url('../assets/ComfyUI_00021_.png');">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
             <div class="text-center">
                 <h2 class="text-4xl md:text-6xl font-bold">Starting line today, finish line tomorrow</h2>

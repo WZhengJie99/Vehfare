@@ -49,3 +49,15 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', checkSections);
     checkSections();
 });
+
+const slider = document.getElementById('slider');
+const frontImg = document.querySelector('.front-img');
+
+slider.addEventListener('input', function() {
+    const value = slider.value;
+    frontImg.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+});
+
+// Initialize the slider position
+slider.value = 50; // Start at the middle
+frontImg.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
