@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehfare - About</title>
+    <link href="./input.css" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="bg-black p-4 fixed top-0 left-0 w-full transition-transform duration-300 ease-in-out z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class=" z-20">
+                <h1 class="text-3xl font-bold text-white">Vehfare</h1>
+            </a>
+            <button id="menu-button" class="text-white md:hidden z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+            <div id="menu"
+                class="fixed inset-0 bg-gray-900 bg-opacity-100 hidden md:relative md:flex md:items-center md:bg-opacity-0 z-10">
+                <button id="close-button" class="absolute top-5 right-4 text-white md:hidden">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <ul
+                    class="flex flex-col h-full justify-start items-start p-8 pt-20 space-y-6 md:flex-row md:space-y-0 md:space-x-4 md:p-0">
+                    <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">Models</a></li>
+                    <li><a href="about.html" class="hover:text-red-500 text-white text-2xl md:text-base">About</a></li>
+                    <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-cover bg-center relative section" style="background-image: url('../assets/ComfyUI_00003_.png');">
+        <div class="flex items-center justify-center h-full bg-opacity-100">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-6xl font-bold">Join the Revolution</h2>
+                <p class="mt-4 text-lg md:text-2xl">Discover vehicles that break the boundaries of what's possible.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="pt-24 pb-16 bg-black section">
+        <br>
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-8">About Vehfare</h2>
+            <p class="text-lg md:text-xl text-center mb-8">
+                Vehfare is dedicated to delivering cutting-edge cyberpunk vehicles that push the boundaries of
+                innovation.
+                Our mission is to provide unparalleled performance and design in every ride, offering a glimpse into the
+                future
+                of transportation.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                    <p>
+                        At Vehfare, we aim to redefine the relationship between humans and machines. Our vision is a
+                        world
+                        where vehicles are not just means of transportation but personalized extensions of their users,
+                        capable of adapting to their needs and desires.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Our Technology</h3>
+                    <p>
+                        Leveraging the latest in nano-technology and AI-driven enhancements, Vehfare's fleet is built to
+                        exceed expectations. Each model is crafted to blend aesthetics with functionality, ensuring a
+                        seamless
+                        and exhilarating experience for our customers.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+    </section>
+
+    <!-- Secondary Footer -->
+    <footer class="bg-black text-white py-8 section">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Us -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Contact Us</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="#" class="hover:text-red-500">Contact Vehfare</a></li>
+                        <li><a href="#" class="hover:text-red-500">Contact Dealer</a></li>
+                    </ul>
+                </div>
+                <!-- Explore -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Explore More</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="#" class="hover:text-red-500">Collections</a></li>
+                        <li><a href="#" class="hover:text-red-500">Bikes</a></li>
+                    </ul>
+                </div>
+                <!-- Vehfare Socials -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Socials</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="#" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="#" class="hover:text-red-500" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        </li>
+                        <li><a href="#" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Vehfare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+
+            function checkSections() {
+                const triggerBottom = window.innerHeight / 5 * 4;
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+
+                    if (sectionTop < triggerBottom) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+            window.addEventListener('scroll', checkSections);
+            checkSections();
+        });
+    </script>
+</body>
+
+</html>

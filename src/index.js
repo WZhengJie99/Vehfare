@@ -28,6 +28,7 @@ window.addEventListener('scroll', function () {
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.section');
     const slider = document.getElementById("img-slider");
