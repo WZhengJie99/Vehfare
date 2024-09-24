@@ -28,9 +28,16 @@ window.addEventListener('scroll', function () {
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
 });
-
 document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.section');
+    const slider = document.getElementById("img-slider");
+    const frontImage = document.querySelector(".front-img");
+    const backImageText = document.querySelector(".back-img-text");
+    const frontImageText = document.querySelector(".front-img-text");
+
+    // Set initial clip path based on slider value
+    const initialValue = slider.value;
+    frontImage.style.clipPath = `polygon(0 0, ${initialValue}% 0, ${initialValue - 12}% 100%, 0 100%)`;
 
     function checkSections() {
         const triggerBottom = window.innerHeight / 5 * 4;
@@ -48,16 +55,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', checkSections);
     checkSections();
+
+    // Update slider value and clip path based on mouse movement
+    document.addEventListener("mousemove", function (event) {
+        const sliderRect = slider.getBoundingClientRect();
+        const sliderWidth = sliderRect.width;
+
+        // Calculate the percentage based on mouse position
+        const percentage = Math.min(Math.max((event.clientX - sliderRect.left) / sliderWidth * 100, 0), 100);
+        slider.value = percentage;
+
+        frontImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage - 12}% 100%, 0 100%)`;
+
+        // Update text visibility based on the percentage
+        if (percentage >= 59 && percentage < 78) {
+            backImageText.style.display = "block";
+            frontImageText.style.display = "block";
+        } else if (percentage >= 60) {
+            backImageText.style.display = "none";
+            frontImageText.style.display = "block";
+        } else {
+            backImageText.style.display = "block";
+            frontImageText.style.display = "none";
+        }
+    });
 });
-
-const slider = document.getElementById('slider');
-const frontImg = document.querySelector('.front-img');
-
-slider.addEventListener('input', function() {
-    const value = slider.value;
-    frontImg.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
-});
-
-// Initialize the slider position
-slider.value = 50; // Start at the middle
-frontImg.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
