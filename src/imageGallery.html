@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehfare - Image Gallery</title>
+    <link href="./output.css" rel="stylesheet">
+    <style>
+        /* Grid and Card Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 4rem;
+            width: 100vw;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Gallery Card Styles */
+        .gallery-card {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        /* Make an image span 2 columns */
+        .gallery-card.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay */
+        .gallery-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-card h4 {
+            color: white;
+            font-size: 1.25rem;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        /* Modal Styles for Enlarged Image */
+        #imageModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #imageModal img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Close Button for Modal */
+        #closeModal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 36px;
+            color: white;
+        }
+
+        /* Filter and Sorting */
+        .filter-container {
+            text-align: center;
+            margin-right: 3rem;
+        }
+
+        h2 {
+            margin-left: 4rem;
+        }
+
+        .filter-container label {
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .filter-container select {
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-container select:hover {
+            background-color: #444;
+        }
+
+        /* Improved Filter Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Style the button */
+        .dropdown-btn {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #444;
+        }
+
+        /* Dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* Options inside the dropdown */
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ff4d4d;
+        }
+
+        /* Show the dropdown when the user clicks on the button */
+        .dropdown.show .dropdown-content {
+            display: block;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: black;
+        }
+
+        footer {
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .filter-container select {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-black p-4 fixed top-0 left-0 w-full transition-transform duration-300 ease-in-out z-30">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class=" z-20">
+                <h1 class="text-3xl font-bold text-white">Vehfare</h1>
+            </a>
+            <!-- Hamburger Menu Button -->
+            <button id="menu-button" class="text-white md:hidden z-10">
+                <!-- Hamburger Icon (3 horizontal bars) -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+            <!-- Menu Items (hidden by default on small screens) -->
+            <div id="menu"
+                class="fixed inset-0 bg-gray-900 bg-opacity-100 hidden md:relative md:flex md:items-center md:bg-opacity-0 z-10">
+                <!-- Close Button -->
+                <button id="close-button" class="absolute top-5 right-4 text-white md:hidden">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <ul
+                    class="flex flex-col h-full justify-start items-start p-8 pt-20 space-y-6 md:flex-row md:space-y-0 md:space-x-4 md:p-0">
+                    <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">Models</a></li>
+                    <li><a href="about.html" class="hover:text-red-500 text-white text-2xl md:text-base">About</a></li>
+                    <li><a href="#" class="hover:text-red-500 text-white text-2xl md:text-base">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-black"><br><br><br></div>
+
+    <div class="flex justify-between items-center px-6 z-20">
+        <h2 class="text-2xl font-bold">Image Gallery</h2>
+        <div class="filter-container flex items-center">
+            <label for="customDropdown" class="text-lg font-semibold mr-2">Filter By Tags:</label>
+            <div class="dropdown" id="customDropdown">
+                <button class="dropdown-btn">Select Tag</button>
+                <div class="dropdown-content z-20">
+                    <a href="#" data-value="all">All</a>
+                    <a href="#" data-value="vehicle">Vehicles</a>
+                    <a href="#" data-value="bike">Bikes</a>
+                    <a href="#" data-value="unique">Unique</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="gallery-grid container mx-auto z-10" id="imageGallery">
+        <!-- Images populated dynamically -->
+    </div>
+
+    <!-- Modal for Enlarged Image -->
+    <div id="imageModal">
+        <img id="modalImage" src="" alt="">
+        <span id="closeModal"
+            style="position: absolute; top: 10px; right: 20px; font-size: 30px; color: white; cursor: pointer;">&times;</span>
+    </div>
+
+    <!-- Secondary Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Us -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Contact Us</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="#" class="hover:text-red-500">Contact Vehfare</a></li>
+                        <li><a href="#" class="hover:text-red-500">Contact Dealer</a></li>
+                    </ul>
+                </div>
+                <!-- Explore -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Explore More</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="#" class="hover:text-red-500">Collections</a></li>
+                        <li><a href="#" class="hover:text-red-500">Bikes</a></li>
+                    </ul>
+                </div>
+                <!-- Vehfare Socials -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Socials</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="#" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="#" class="hover:text-red-500" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        </li>
+                        <li><a href="#" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Vehfare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="imageGallery.js"></script>
+</body>
+
+</html>
