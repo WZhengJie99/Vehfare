@@ -4,9 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehfare - About</title>
-    <link href="./input.css" rel="stylesheet">
+    <title>Vehfare - Contact</title>
     <link href="./output.css" rel="stylesheet">
+    <style>
+        .ticker-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+        }
+
+        .ticker {
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: tickerMove 10s linear infinite;
+            /* Slow down the speed */
+        }
+
+        .ticker p {
+            font-size: 1.5rem;
+            color: #ff4d4d;
+            font-weight: bold;
+            display: inline-block;
+            padding-right: 2rem;
+        }
+
+        @keyframes tickerMove {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-black text-white">
@@ -42,50 +75,53 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-cover bg-center relative section" style="background-image: url('../assets/ComfyUI_00003_.png');">
-        <div class="flex items-center justify-center h-full bg-opacity-100">
-            <div class="text-center">
-                <h2 class="text-4xl md:text-6xl font-bold">Join the Revolution</h2>
-                <p class="mt-4 text-lg md:text-2xl">Discover vehicles that break the boundaries of what's possible.</p>
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section class="pt-24 pb-16 bg-black section">
-        <br>
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-6xl font-bold text-center mb-8">About Vehfare</h2>
-            <p class="text-lg md:text-xl text-center mb-8">
-                Vehfare is dedicated to delivering cutting-edge cyberpunk vehicles that push the boundaries of
-                innovation.
-                Our mission is to provide unparalleled performance and design in every ride, offering a glimpse into the
-                future
-                of transportation.
+    <div class="bg-black"><br><br><br></div>
+    
+    <div class="ticker-wrapper">
+        <div class="ticker mt-2">
+            <p>Join&nbsp; us&nbsp; today&nbsp; and&nbsp; together&nbsp; we'll&nbsp; build&nbsp; great&nbsp; things&nbsp;!
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
-                    <p>
-                        At Vehfare, we aim to redefine the relationship between humans and machines. Our vision is a
-                        world
-                        where vehicles are not just means of transportation but personalized extensions of their users,
-                        capable of adapting to their needs and desires.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Our Technology</h3>
-                    <p>
-                        Leveraging the latest in nano-technology and AI-driven enhancements, Vehfare's fleet is built to
-                        exceed expectations. Each model is crafted to blend aesthetics with functionality, ensuring a
-                        seamless
-                        and exhilarating experience for our customers.
-                    </p>
-                </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <section class="container mx-auto p-6">
+        <div class="flex justify-center items-center">
+            <div class="w-full max-w-lg rounded-lg shadow-lg p-6 mb-8">
+                <h2 class="text-2xl font-semibold text-gray-800 text-center">Contact Us</h2>
+
+                <form id="contactForm" class="mt-6">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" 
+                               class="w-full px-4 py-3 bg-white text-black border rounded-lg focus:outline-none" 
+                               required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email" 
+                               class="w-full px-4 py-3 bg-white text-black border rounded-lg focus:outline-none" 
+                               required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Thank you for trying to contact Vehfare. This website is part of a portfolio project and no actual message will be sent, please contact wzhengjie99@gmail.com or alternatively, view my projects at https://github.com/WZhengJie99, Thank you!" 
+                                  class="w-full px-4 py-3 bg-white text-black border rounded-lg focus:outline-none" 
+                                  rows="5" required></textarea>
+                    </div>                                      
+
+                    <div class="flex justify-center">
+                        <button type="submit" class="text-white px-4 py-2 rounded-lg hover:text-red-500 focus:outline-none">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+
+                <p id="formResponse" class="text-center text-green-500 mt-4 hidden">Thank you for trying to contact Vehfare. This website is part of a portfolio project and no actual message is being sent, please contact <a href="wzhengjie99@gmail.com">wzhengjie99@gmail.com</a> or alternatively, view my projects at <a href="https://github.com/WZhengJie99">https://github.com/WZhengJie99</a>, Thank you!</p>
             </div>
         </div>
-        <br><br><br>
     </section>
 
     <!-- Secondary Footer -->
@@ -133,23 +169,14 @@
 
     <script src="index.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('.section');
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formResponse = document.getElementById('formResponse');
+            formResponse.classList.remove('hidden');
 
-            function checkSections() {
-                const triggerBottom = window.innerHeight / 5 * 4;
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-
-                    if (sectionTop < triggerBottom) {
-                        section.classList.add('visible');
-                    } else {
-                        section.classList.remove('visible');
-                    }
-                });
-            }
-            window.addEventListener('scroll', checkSections);
-            checkSections();
+            // Code to handle form submission (e.g. sending the data to server)
+            this.reset();
         });
     </script>
 </body>
