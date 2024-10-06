@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehfare - A010</title>
+    <link href="./input.css" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+    <style>
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        /* Animation for fade-in effect */
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .animate-fade-in-delay1 {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .animate-fade-in-delay2 {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .animate-fade-in-delay3 {
+            opacity: 0;
+            animation: fadeIn 2.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="bg-black p-4 fixed top-0 left-0 w-full transition-transform duration-300 ease-in-out z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class=" z-20">
+                <h1 class="text-3xl font-bold text-white">Vehfare</h1>
+            </a>
+            <!-- Hamburger Menu Button -->
+            <button id="menu-button" class="text-white md:hidden z-10">
+                <!-- Hamburger Icon (3 horizontal bars) -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+            <!-- Menu Items (hidden by default on small screens) -->
+            <div id="menu"
+                class="fixed inset-0 bg-gray-900 bg-opacity-100 hidden md:relative md:flex md:items-center md:bg-opacity-0 z-10">
+                <!-- Close Button -->
+                <button id="close-button" class="absolute top-5 right-4 text-white md:hidden">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <ul
+                    class="flex flex-col h-full justify-start items-start p-8 pt-20 space-y-6 md:flex-row md:space-y-0 md:space-x-4 md:p-0">
+                    <li><a href="imageGallery.html"
+                            class="hover:text-red-500 text-white text-2xl md:text-base">Models</a></li>
+                    <li><a href="about.html" class="hover:text-red-500 text-white text-2xl md:text-base">About</a></li>
+                    <li><a href="contact.html" class="hover:text-red-500 text-white text-2xl md:text-base">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: A010 Introduction-->
+    <header class="bg-cover bg-center relative section z-10"
+        style="background-image: url('../assets/ComfyUI_00009_.png');">
+        <!-- Overlay: Only visible on mobile -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 md:hidden"></div>
+
+        <div class="flex justify-start items-start p-8 h-full">
+            <div class="flex flex-col justify-between h-full w-full sm:text-center">
+                <div class="p-10">
+                    <h2 class="text-4xl md:text-6xl font-bold animate-fade-in">A010</h2>
+                    <p class="mt-4 text-lg md:text-2xl animate-fade-in-delay1">Morph to your ideal ride</p>
+                    <p class="mt-4 text-base md:text-xl animate-fade-in-delay2">Top Speed: 1000km/h</p>
+                    <p class="mt-4 text-base md:text-xl animate-fade-in-delay3">0-100 km/h in 1s</p>
+                </div>
+            </div>
+    </header>
+
+    <!-- A010 Features Section -->
+    <section class="py-16 bg-black text-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold mb-8 text-center">A010 Features</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                    style="background-image: url('../assets/A010_feature1.jpg');">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-lg">
+                        <h4 class="text-xl font-bold mb-4">Adaptive Nanotechnology</h4>
+                        <p class="text-center mb-4">A vehicle that evolves based on your needs.</p>
+                    </div>
+                </div>
+                <div class="relative h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                    style="background-image: url('../assets/A010_feature2.jpg');">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-lg">
+                        <h4 class="text-xl font-bold mb-4">Zero-Gravity Capable</h4>
+                        <p class="text-center mb-4">Navigate seamlessly in space or on land.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondary Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Us -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Contact Us</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="contact.html" class="hover:text-red-500">Contact Vehfare</a></li>
+                        <li><a href="contactDealer.html" class="hover:text-red-500">Contact Dealer</a></li>
+                    </ul>
+                </div>
+                <!-- Explore -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Explore More</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="imageGallery.html" class="hover:text-red-500">Collections</a></li>
+                        <li><a href="imageGallery.html" class="hover:text-red-500">Bikes</a></li>
+                    </ul>
+                </div>
+                <!-- Vehfare Socials -->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-4 text-center">Socials</h4>
+                    <ul class="space-y-2 text-center">
+                        <li><a href="https://github.com/WZhengJie99" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://x.com/WZJ_99_" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">X</a>
+                        </li>
+                        <li><a href="https://github.com/WZhengJie99" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Vehfare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+
+            function checkSections() {
+                const triggerBottom = window.innerHeight / 5 * 4;
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+
+                    if (sectionTop < triggerBottom) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+            window.addEventListener('scroll', checkSections);
+            checkSections();
+        });
+    </script>
+</body>
+
+</html>
