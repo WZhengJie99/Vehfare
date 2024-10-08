@@ -10,12 +10,12 @@
         /* Grid and Card Styles */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
-            padding: 2rem 4rem;
+            padding: 2rem 4rem 2rem 4rem;
             width: 100vw;
             max-width: 100%;
-            margin: 0 auto;
+            margin: 0 -0.9rem;
         }
 
         /* Gallery Card Styles */
@@ -111,7 +111,7 @@
         /* Filter and Sorting */
         .filter-container {
             text-align: center;
-            margin-right: 3rem;
+            margin-right: 120px;
         }
 
         h2 {
@@ -196,16 +196,46 @@
             z-index: 10;
         }
 
-        @media (max-width: 768px) {
-            .filter-container select {
-                width: 100%;
-                margin-top: 1rem;
-            }
-        }
+
         .navbar {
             z-index: 50;
         }
 
+        @media (max-width: 767px) {
+            .filter-container select {
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                padding-left: -1rem;
+            }
+
+            .gallery-card img {
+                width: 100%;
+                height: auto;
+                min-width: 200px;
+                min-height: 150px;
+                max-width: 100%;
+                object-fit: cover;
+            }
+
+            .gallery-heading {
+                position: absolute;
+                top: 10;
+                z-index: 30;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transform: translateY(-50%);
+                margin-left: -1rem;
+            }
+
+            .filter-container {
+                margin-right: 0;
+                margin-top: 40px;
+            }
+        }
     </style>
 </head>
 
@@ -239,9 +269,11 @@
                 </button>
                 <ul
                     class="flex flex-col h-full justify-start items-start p-8 pt-20 space-y-6 md:flex-row md:space-y-0 md:space-x-4 md:p-0">
-                    <li><a href="imageGallery.html" class="hover:text-red-500 text-white text-2xl md:text-base">Models</a></li>
+                    <li><a href="imageGallery.html"
+                            class="hover:text-red-500 text-white text-2xl md:text-base">Models</a></li>
                     <li><a href="about.html" class="hover:text-red-500 text-white text-2xl md:text-base">About</a></li>
-                    <li><a href="contact.html" class="hover:text-red-500 text-white text-2xl md:text-base">Contact</a></li>
+                    <li><a href="contact.html" class="hover:text-red-500 text-white text-2xl md:text-base">Contact</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -249,8 +281,8 @@
 
     <div class="bg-black"><br><br><br></div>
 
-    <div class="flex justify-between items-center px-6 z-20">
-        <h2 class="text-2xl font-bold">Image Gallery</h2>
+    <div class="relative flex justify-between items-center px-6 z-20">
+        <h2 class="text-2xl font-bold gallery-heading">Image Gallery</h2>
         <div class="filter-container flex items-center">
             <label for="customDropdown" class="text-lg font-semibold mr-2">Filter By Tags:</label>
             <div class="dropdown" id="customDropdown">
@@ -258,7 +290,6 @@
                 <div class="dropdown-content z-20">
                     <a href="#" data-value="all">All</a>
                     <a href="#" data-value="vehicle">Vehicles</a>
-                    <a href="#" data-value="bike">Bikes</a>
                     <a href="#" data-value="unique">Unique</a>
                 </div>
             </div>
@@ -266,15 +297,17 @@
     </div>
 
     <!-- Image Gallery -->
-    <div class="gallery-grid container mx-auto z-10" id="imageGallery">
+    <div class="gallery-grid container mx-4 z-10" id="imageGallery">
         <!-- Images populated dynamically -->
     </div>
 
     <!-- Modal for Enlarged Image -->
     <div id="imageModal">
+        <span id="modalName"
+            style="position: absolute; top: 20px; left: 40px; font-size: 45px; color: white; z-index: 10;"></span>
         <img id="modalImage" src="" alt="">
         <span id="closeModal"
-            style="position: absolute; top: 10px; right: 20px; font-size: 30px; color: white; cursor: pointer;">&times;</span>
+            style="position: absolute; top: 10px; right: 20px; font-size: 45px; color: white; cursor: pointer;">&times;</span>
     </div>
 
     <!-- Secondary Footer -->
@@ -293,8 +326,9 @@
                 <div class="flex flex-col items-center">
                     <h4 class="text-xl font-bold mb-4 text-center">Explore More</h4>
                     <ul class="space-y-2 text-center">
-                        <li><a href="imageGallery.html" class="hover:text-red-500">Collections</a></li>
-                        <li><a href="imageGallery.html" class="hover:text-red-500">Bikes</a></li>
+                        <li><a href="imageGallery.html" class="hover:text-red-500">Gallery</a></li>
+                        <li><a href="imageGallery.html?filter=unique" class="hover:text-red-500">Unique Collections</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Vehfare Socials -->
@@ -303,7 +337,8 @@
                     <ul class="space-y-2 text-center">
                         <li><a href="https://github.com/WZhengJie99" class="hover:text-red-500" target="_blank"
                                 rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="https://x.com/WZJ_99_" class="hover:text-red-500" target="_blank" rel="noopener noreferrer">X</a>
+                        <li><a href="https://x.com/WZJ_99_" class="hover:text-red-500" target="_blank"
+                                rel="noopener noreferrer">X</a>
                         </li>
                         <li><a href="https://github.com/WZhengJie99" class="hover:text-red-500" target="_blank"
                                 rel="noopener noreferrer">Instagram</a></li>

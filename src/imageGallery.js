@@ -3,50 +3,68 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.getElementById('customDropdown');
     const button = dropdown.querySelector('.dropdown-btn');
     const content = dropdown.querySelector('.dropdown-content');
+    const modalImage = document.getElementById('modalImage');
+    const imageModal = document.getElementById('imageModal');
+    const modalName = document.getElementById('modalName');
+    const closeModal = document.getElementById('closeModal');
 
     // JSON data
     const imagesData = [
         {
-            "name": "ComfyUI_00004",
+            "name": "A008",
+            "catchP": "A008",
             "date": "20-09-2024",
             "src": "../assets/ComfyUI_00004_.png",
-            "tags": ["vehicle", "unique"]
+            "tags": ["vehicle"],
+            "link": "#"
         },
         {
             "name": "A010",
+            "catchP": "A010 - Morph to your ideal ride",
             "date": "21-09-2024",
             "src": "../assets/ComfyUI_00009_.png",
-            "tags": ["vehicle"]
+            "tags": ["vehicle"],
+            "link": "a010.html"
         },
         {
             "name": "A010",
+            "catchP": "A010 - Morph to your ideal ride",
             "date": "21-09-2024",
             "src": "../assets/ComfyUI_00008_.png",
-            "tags": ["vehicle"]
+            "tags": ["vehicle"],
+            "link": "a010.html"
         },
         {
-            "name": "ComfyUI_00011",
+            "name": "A009",
+            "catchP": "A009",
             "date": "21-09-2024",
             "src": "../assets/ComfyUI_00011_.png",
-            "tags": ["vehicle"]
+            "tags": ["vehicle", "unique"],
+            "link": "#"
         },
         {
             "name": "A010",
+            "catchP": "A010 - Morph to your ideal ride",
             "date": "22-09-2024",
             "src": "../assets/ComfyUI_00019_.png",
-            "tags": ["vehicle"]
+            "tags": ["vehicle"],
+            "link": "a010.html"
         },
         {
             "name": "A010",
+            "catchP": "A010 - Morph to your ideal ride",
             "date": "22-09-2024",
             "src": "../assets/ComfyUI_00020_.png",
-            "tags": ["vehicle"]
+            "tags": ["vehicle", "unique"],
+            "link": "a010.html"
         },
         {
             "name": "A010",
+            "catchP": "A010 - Morph to your ideal ride",
             "date": "23-09-2024",
             "src": "../assets/ComfyUI_00031_.png",
-            "tags": ["vehicle"]
+            "tags": ["vehicle"],
+            "link": "a010.html"
         }
     ];
 
@@ -77,22 +95,48 @@ document.addEventListener("DOMContentLoaded", () => {
         card.appendChild(overlay);
         imageGallery.appendChild(card);
 
-        // Enlarge image on click
         card.addEventListener('click', () => {
             modalImage.src = image.src;
+            modalName.textContent = image.name;
+            modalImage.dataset.link = image.link;
             imageModal.style.display = 'flex';
         });
     }
 
-     imageModal.addEventListener('click', (e) => {
+    modalImage.addEventListener('click', () => {
+        const link = modalImage.dataset.link;
+        if (link) {
+            window.location.href = link;
+        }
+    });
+
+    imageModal.addEventListener('click', (e) => {
         if (e.target === imageModal || e.target === closeModal) {
             imageModal.style.display = 'none';
         }
     });
 
+    document.querySelectorAll('.filter-link').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const tag = link.getAttribute('data-value');
+            renderGallery(tag);
+        });
+    });
+
+    function getURLParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+    
+    window.addEventListener('DOMContentLoaded', () => {
+        const filterTag = getURLParameter('filter') || 'all';
+        renderGallery(filterTag);
+    });
+
     // filter
     function renderGallery(filterTag) {
-        // Clear current images
         imageGallery.innerHTML = '';
 
         let filteredImages = imagesData;
@@ -102,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
             filteredImages = imagesData.filter(image => image.tags.includes(filterTag));
         }
 
-        // Sort by date if applicable
         if (filterTag === 'date-asc') {
             filteredImages.sort((a, b) => new Date(a.date.split('-').reverse().join('-')) - new Date(b.date.split('-').reverse().join('-')));
         } else if (filterTag === 'date-desc') {
